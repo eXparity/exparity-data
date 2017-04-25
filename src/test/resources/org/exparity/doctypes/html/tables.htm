@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<body>
+<table id="simple" width="200" border="1">
+	<tr>
+		<td>row0column0</td>
+		<td>row0column1</td>
+	</tr>
+	<tr>
+		<td>row1column0</td>
+		<td>row1column1</td>
+	</tr>
+</table>
+<table id="unbalanced" width="200" border="1">
+	<tr>
+		<td colspan="1">row0column0</td>
+	</tr>
+	<tr>
+		<td>row1column0</td>
+		<td>row1column1</td>
+	</tr>
+</table>
+<table id="nested" width="200" border="1">
+	<tr>
+		<td><a href="xyx.htm">row0column0</a></td>
+		<td><p>row0column1</p></td>
+	</tr>
+	<tr>
+		<td>row1column0</td>
+		<td>row1column1</td>
+	</tr>
+</table>
+<table id="headerWithTableData" width="200" border="1">
+	<thead>
+	<tr>
+		<td><a href="xyx.htm">row0column0</a></td>
+		<td><p>row0column1</p></td>
+	</tr>
+	</thead>
+	<tr>
+		<td>row1column0</td>
+		<td>row1column1</td>
+	</tr>
+</table>
+<table id="notThisOne" width="200" border="1">
+	<tr>
+		<td>notThisOne</td>
+		<td>notThisOne</td>
+	</tr>
+</table>
+<table id="sections" width="200" border="1">
+	<thead>
+		<tr>
+			<th colspan="2">header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>row0column0</td>			
+			<td>row0column1</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td>row1column0</td>
+			<td>row1column1</td>
+		</tr>
+	</tfoot>
+</table>
+<table id="complex" width="200" border="1">
+		<tr>
+			<td rowspan="2">row0column0</td><td>row0column1</td>
+		</tr>
+		<tr>
+			<td>row1column1</td>
+		</tr>
+		<tr>
+			<td colspan="2">row2column0</td>
+		</tr>
+</table>
+</body>
+</html>

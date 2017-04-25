@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sampleData>
+	<content attr="xyz">content</content>
+	<sampleElement elementIndex="1" />
+	<sampleElement elementIndex="2">
+		<sampleChild>Some data</sampleChild>
+	</sampleElement>
+</sampleData>

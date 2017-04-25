@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entity>
+	<elementA>elementA</elementA>
+	<elementB>true</elementB>
+	<elementC>1.0</elementC>
+</Entity>
