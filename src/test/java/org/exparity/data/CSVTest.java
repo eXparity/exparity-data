@@ -1,20 +1,19 @@
-package org.exparity.doctypes.csv;
+package org.exparity.data;
 
 import static org.junit.Assert.assertEquals;
 
-import org.exparity.data.CSV;
 import org.exparity.io.classpath.JcpFile;
 import org.junit.Test;
 
 /**
  * @author Stewart Bissett
  */
-public class CsvDocumentTest {
+public class CSVTest {
 
     @Test
     public void canCreateCSV() throws Exception {
 
-        CSV data = CSV.read(JcpFile.open("sample.csv", CsvDocumentTest.class), false);
+        CSV data = CSV.read(JcpFile.open("/org/exparity/data/csv/sample.csv", CSVTest.class), false);
 
         assertEquals(2, data.getNumOfRows());
         assertEquals(6, data.getNumOfColumns());

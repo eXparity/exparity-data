@@ -1,5 +1,5 @@
 
-package org.exparity.doctypes.html;
+package org.exparity.data.html;
 
 import static org.exparity.data.HTML.openResource;
 import static org.junit.Assert.assertEquals;

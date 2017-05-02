@@ -1,11 +1,10 @@
-package org.exparity.doctypes.html;
+package org.exparity.data.html;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
 import org.exparity.data.HTML;
-import org.exparity.data.html.HtmlSelector;
 import org.exparity.data.types.Table;
 import org.exparity.io.classpath.JcpFile;
 import org.junit.Test;
@@ -17,7 +16,7 @@ public class HtmlTableTest {
 
     @Test
     public void canReadSimpleTable() throws Exception {
-        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlDocumentTest.class));
+        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlTableTest.class));
         List<Table> tables = data.findTables(HtmlSelector.byAttributeValue("id", "simple"));
         assertEquals(1, tables.size());
 
@@ -33,7 +32,7 @@ public class HtmlTableTest {
 
     @Test
     public void canReadTableWithDataInHeader() throws Exception {
-        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlDocumentTest.class));
+        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlTableTest.class));
         List<Table> tables = data.findTables(HtmlSelector.byAttributeValue("id", "headerWithTableData"));
         assertEquals(1, tables.size());
 
@@ -50,7 +49,7 @@ public class HtmlTableTest {
 
     @Test
     public void canReadSimpleTableWithNestedTags() throws Exception {
-        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlDocumentTest.class));
+        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlTableTest.class));
         List<Table> tables = data.findTables(HtmlSelector.byAttributeValue("id", "nested"));
         assertEquals(1, tables.size());
 
@@ -66,7 +65,7 @@ public class HtmlTableTest {
 
     @Test
     public void canReadSimpleTableWithMixedRowSizes() throws Exception {
-        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlDocumentTest.class));
+        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlTableTest.class));
         List<Table> tables = data.findTables(HtmlSelector.byAttributeValue("id", "unbalanced"));
         assertEquals(1, tables.size());
 
@@ -82,7 +81,7 @@ public class HtmlTableTest {
 
     @Test
     public void canReadComplexTable() throws Exception {
-        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlDocumentTest.class));
+        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlTableTest.class));
         List<Table> tables = data.findTables(HtmlSelector.byAttributeValue("id", "complex"));
         assertEquals(1, tables.size());
 
@@ -100,7 +99,7 @@ public class HtmlTableTest {
 
     @Test
     public void canReadTableWithHeaderAndFooter() throws Exception {
-        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlDocumentTest.class));
+        HTML data = HTML.read(JcpFile.open("tables.htm", HtmlTableTest.class));
         List<Table> tables = data.findTables(HtmlSelector.byAttributeValue("id", "sections"));
         assertEquals(1, tables.size());
 

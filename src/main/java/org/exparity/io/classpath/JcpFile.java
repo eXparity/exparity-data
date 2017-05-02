@@ -40,7 +40,14 @@ public class JcpFile implements TextDataSource, BinaryDataSource {
      * @throws IOException
      */
     public static JcpFile open(final String resource, final Class<?> klass) throws IOException {
-        return open(resource, klass.getClassLoader());
+        InputStream is = klass.getResourceAsStream(resource);
+        if (is == null) {
+            throw new FileNotFoundException(resource);
+        } else {
+            try (final InputStream stream = is) {
+                return new JcpFile(org.apache.commons.io.IOUtils.toByteArray(stream));
+            }
+        }
     }
 
     /**

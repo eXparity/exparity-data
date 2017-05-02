@@ -84,7 +84,7 @@ public class XML extends Text {
 
     private static final Logger LOG = LoggerFactory.getLogger(XML.class);
     private static final int DEFAULT_INDENT = 2;
-    private static final XmlParser DEFAULT_PARSER = newParserFactory().setNamespaceAware(true).build();
+    private static final XmlParser DEFAULT_PARSER = newParserFactory().setNamespaceAware(false).build();
     private static final Function<Node, Element> NODE_TO_ELEMENT_TRANSFORMER = new Function<Node, Element>() {
 
         @Override
@@ -141,7 +141,7 @@ public class XML extends Text {
     }
 
     public static XML read(final TextDataSource source, final XmlParser parser) {
-        return read(source, parser);
+        return read(source.getStream(), parser);
     }
 
     public static XML read(final InputStream source) {
@@ -162,6 +162,14 @@ public class XML extends Text {
 
     public static XML of(final HTML html) {
         return of(html, new HtmlCleanerXmlFactory(DEFAULT_PARSER));
+    }
+
+    public static XML of(final String xml) {
+        return of(xml, DEFAULT_PARSER);
+    }
+
+    public static XML of(final String xml, final XmlParser parser) {
+        return read(new ByteArrayInputStream(xml.getBytes()), parser);
     }
 
     /**

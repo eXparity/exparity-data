@@ -2,7 +2,7 @@
  * 
  */
 
-package org.exparity.doctypes.xml.marshallers;
+package org.exparity.data.xml.marshallers;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

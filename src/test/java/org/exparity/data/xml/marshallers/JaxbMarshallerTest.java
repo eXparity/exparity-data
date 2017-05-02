@@ -1,4 +1,4 @@
-package org.exparity.doctypes.xml.marshallers;
+package org.exparity.data.xml.marshallers;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;

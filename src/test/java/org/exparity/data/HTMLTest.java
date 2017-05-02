@@ -1,4 +1,4 @@
-package org.exparity.doctypes.html;
+package org.exparity.data;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
@@ -6,38 +6,35 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.exparity.data.BadFormatException;
-import org.exparity.data.HTML;
 import org.exparity.data.html.HtmlSelector;
 import org.exparity.data.html.Tag;
-import org.exparity.io.classpath.JcpFile;
 import org.junit.Test;
 
 /**
  * @author Stewart Bissett
  */
-public class HtmlDocumentTest {
+public class HTMLTest {
 
     @Test
     public void canCreateHtml() throws Exception {
-        HTML html = HTML.read(JcpFile.open("sample.html", HtmlDocumentTest.class));
+        HTML html = HTML.openResource("/org/exparity/data/html/sample.html", HTMLTest.class);
         assertEquals(458, html.getLength());
         assertEquals("Sample Page", html.getTitle());
     }
 
     @Test(expected = BadFormatException.class)
     public void canThrowBadFormatExcceptionForInvalidText() throws Exception {
-        HTML.read(JcpFile.open("sample.csv", HtmlDocumentTest.class));
+        HTML.openResource("/org/exparity/data/html/sample.csv", HTMLTest.class);
     }
 
     @Test(expected = BadFormatException.class)
     public void canThrowBadFormatExcceptionForBinary() throws Exception {
-        HTML.read(JcpFile.open("sample.gif", HtmlDocumentTest.class));
+        HTML.openResource("/org/exparity/data/html/sample.gif", HTMLTest.class);
     }
 
     @Test
     public void canReadNonStandardCharacters2() throws Exception {
-        HTML data = HTML.read(JcpFile.open("canon_xl2.htm", HtmlDocumentTest.class));
+        HTML data = HTML.openResource("/org/exparity/data/html/canon_xl2.htm", HTMLTest.class);
         List<Tag> tags =
                 data.findTags(HtmlSelector.byTagName("meta"), HtmlSelector.byAttributeValue("name", "description"));
         assertEquals(1, tags.size());
@@ -48,16 +45,16 @@ public class HtmlDocumentTest {
 
     @Test
     public void canNotBeEqualForTwoInstanceSameFile() throws Exception {
-        HTML data = HTML.read(JcpFile.open("sample.html", HtmlDocumentTest.class));
-        HTML other = HTML.read(JcpFile.open("sample.html", HtmlDocumentTest.class));
+        HTML data = HTML.openResource("/org/exparity/data/html/sample.html", HTMLTest.class);
+        HTML other = HTML.openResource("/org/exparity/data/html/sample.html", HTMLTest.class);
         assertNotSame(data, other);
         assertTrue(!data.equals(other));
     }
 
     @Test
     public void canNotBeEqualForDifferentFiles() throws Exception {
-        HTML data = HTML.read(JcpFile.open("sample.html", HtmlDocumentTest.class));
-        HTML other = HTML.read(JcpFile.open("canon_xl2.htm", HtmlDocumentTest.class));
+        HTML data = HTML.openResource("/org/exparity/data/html/sample.html", HTMLTest.class);
+        HTML other = HTML.openResource("/org/exparity/data/html/canon_xl2.htm", HTMLTest.class);
         assertTrue(!data.equals(other));
     }
 }

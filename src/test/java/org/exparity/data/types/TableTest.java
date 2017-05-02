@@ -1,4 +1,4 @@
-package org.exparity.datatypes;
+package org.exparity.data.types;
 
 import static java.time.format.DateTimeFormatter.ofPattern;
 import static org.exparity.dates.en.FluentLocalDate.AUG;

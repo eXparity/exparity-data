@@ -1,4 +1,4 @@
-package org.exparity.doctypes.html;
+package org.exparity.data.html;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.exparity.data.HTML;
-import org.exparity.data.html.HtmlSelector;
-import org.exparity.data.html.Tag;
 import org.exparity.io.classpath.JcpFile;
 import org.junit.Test;
 
@@ -18,7 +16,7 @@ public class HtmlSelectorTest {
 
     @Test
     public void canFindTagsByTagName() throws Exception {
-        HTML data = HTML.read(JcpFile.open("sample.html", HtmlDocumentTest.class));
+        HTML data = HTML.read(JcpFile.open("sample.html", HtmlSelectorTest.class));
 
         List<Tag> found = data.findTags(HtmlSelector.byTagName(HTML.P_TAG));
         assertEquals(1, found.size());
@@ -29,7 +27,7 @@ public class HtmlSelectorTest {
 
     @Test
     public void canFindTagsByTagRegex() throws Exception {
-        HTML data = HTML.read(JcpFile.open("sample.html", HtmlDocumentTest.class));
+        HTML data = HTML.read(JcpFile.open("sample.html", HtmlSelectorTest.class));
 
         Pattern pattern = Pattern.compile("p|title");
         List<Tag> found = data.findTags(HtmlSelector.byTagRegex(pattern));
@@ -44,7 +42,7 @@ public class HtmlSelectorTest {
 
     @Test
     public void canFindTagsbyAttributeValue() throws Exception {
-        HTML data = HTML.read(JcpFile.open("sample.html", HtmlDocumentTest.class));
+        HTML data = HTML.read(JcpFile.open("sample.html", HtmlSelectorTest.class));
 
         List<Tag> found = data.findTags(
                 HtmlSelector.byAttributeValue(HTML.HTTP_EQUIV_ATTRIBUTE, HTML.CONTENT_TYPE_HEADER));
@@ -58,7 +56,7 @@ public class HtmlSelectorTest {
 
     @Test
     public void canFindTagsbyAttributeName() throws Exception {
-        HTML data = HTML.read(JcpFile.open("sample.html", HtmlDocumentTest.class));
+        HTML data = HTML.read(JcpFile.open("sample.html", HtmlSelectorTest.class));
 
         List<Tag> found = data.findTags(HtmlSelector.byAttributeName(HTML.HTTP_EQUIV_ATTRIBUTE));
         assertEquals(1, found.size());
@@ -71,7 +69,7 @@ public class HtmlSelectorTest {
 
     @Test
     public void canFindTagsbyAttributeRegex() throws Exception {
-        HTML html = HTML.read(JcpFile.open("sample.html", HtmlDocumentTest.class));
+        HTML html = HTML.read(JcpFile.open("sample.html", HtmlSelectorTest.class));
 
         Pattern pattern = Pattern.compile("x|y");
         List<Tag> found = html.findTags(HtmlSelector.byAttributeRegex("id", pattern));
