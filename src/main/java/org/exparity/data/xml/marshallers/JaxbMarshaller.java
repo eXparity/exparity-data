@@ -24,6 +24,7 @@ import org.exparity.data.xml.XmlMarshaller;
  * @author Stewart Bissett
  */
 public class JaxbMarshaller<T> implements XmlMarshaller<T> {
+
     private final JAXBContext ctx;
 
     public JaxbMarshaller(final Class<?> klass) throws MarshallerConfigurationError {

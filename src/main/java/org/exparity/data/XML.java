@@ -316,8 +316,8 @@ public class XML extends Text {
         try {
             StringWriter writer = new StringWriter();
             TransformerFactory txFactory = TransformerFactory.newInstance();
-            Transformer transformer =
-                    txFactory.newTransformer(new StreamSource(new ByteArrayInputStream(COMPACTING_XLST.getBytes())));
+            Transformer transformer = txFactory.newTransformer(new StreamSource(new ByteArrayInputStream(COMPACTING_XLST
+                    .getBytes())));
             transformer.transform(new DOMSource(document), new StreamResult(writer));
             return writer.toString();
         } catch (TransformerConfigurationException e) {
@@ -370,8 +370,8 @@ public class XML extends Text {
      * Supply a resource which is parsed as an XSL stylesheet and then used to transform this document to another
      * {@link XML}
      */
-    public XML transform(final String resource, final Class<?> klass)
-            throws TransformFailedException, BadFormatException {
+    public XML transform(final String resource, final Class<?> klass) throws TransformFailedException,
+            BadFormatException {
         return transform(klass.getResourceAsStream(resource));
     }
 

@@ -35,8 +35,8 @@ public class HTMLTest {
     @Test
     public void canReadNonStandardCharacters2() throws Exception {
         HTML data = HTML.openResource("/org/exparity/data/html/canon_xl2.htm", HTMLTest.class);
-        List<Tag> tags =
-                data.findTags(HtmlSelector.byTagName("meta"), HtmlSelector.byAttributeValue("name", "description"));
+        List<Tag> tags = data.findTags(HtmlSelector.byTagName("meta"),
+                HtmlSelector.byAttributeValue("name", "description"));
         assertEquals(1, tags.size());
         assertEquals(
                 "With 3x 1/3” 800k progressive scan CCDs and full manual control over all image settings, the XL2 represents the last word in flexible, broadcast quality miniDV.",

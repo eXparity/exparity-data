@@ -94,7 +94,8 @@ public class InternetPhysicalImpl implements Internet {
     public InternetFile open(final URL url,
             final String userAgent,
             final int maxRetries,
-            final HttpHeader... properties) throws MaxRetryException, FileNotFoundException {
+            final HttpHeader... properties) throws MaxRetryException,
+            FileNotFoundException {
         for (int remainingAttempts = maxRetries; remainingAttempts > 0; --remainingAttempts) {
             try {
                 return open(url, userAgent, properties);

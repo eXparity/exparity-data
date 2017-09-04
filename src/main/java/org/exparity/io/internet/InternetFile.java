@@ -320,11 +320,13 @@ public class InternetFile implements TextDataSource, BinaryDataSource {
     @SuppressWarnings("unchecked")
     public static InputStream openURLStream(final String url,
             final String agentName,
-            final KeyValue<String, String>... properties) throws MalformedURLException, IOException {
+            final KeyValue<String, String>... properties) throws MalformedURLException,
+            IOException {
         return InternetFile.openURLStream(new URL(url), agentName, properties);
     }
 
     static class Empty extends InternetFile {
+
         public Empty() {
             super(setUpUrl(), new byte[0], new ArrayList<HttpHeader>());
         }

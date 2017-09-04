@@ -78,8 +78,8 @@ public class FileSystemMemoryImpl implements FileSystem {
         LOG.trace("Creating directory '" + directory + "'");
         String standardised = standardisePath(directory);
         if (directories.contains(standardised)) {
-            throw new FileSystemOperationException(
-                    "Directory " + directory + " could not be created because it already exists");
+            throw new FileSystemOperationException("Directory " + directory
+                    + " could not be created because it already exists");
         }
         directories.add(standardised);
     }
@@ -89,8 +89,8 @@ public class FileSystemMemoryImpl implements FileSystem {
         LOG.trace("Creating file '" + filename + "'");
         String standardised = standardisePath(filename);
         if (files.containsKey(standardised)) {
-            throw new FileSystemOperationException(
-                    "File " + filename + " could not be created because it already exists");
+            throw new FileSystemOperationException("File " + filename
+                    + " could not be created because it already exists");
         }
         files.put(standardised, new ByteArrayOutputStream());
     }
@@ -100,8 +100,8 @@ public class FileSystemMemoryImpl implements FileSystem {
         LOG.trace("Deleting directory '" + directory + "'");
         String standardised = standardisePath(directory);
         if (!directories.contains(standardised)) {
-            throw new FileSystemOperationException(
-                    "Directory " + directory + " could not be deleted because it doesn't exist");
+            throw new FileSystemOperationException("Directory " + directory
+                    + " could not be deleted because it doesn't exist");
         }
         directories.remove(standardised);
     }
@@ -111,8 +111,8 @@ public class FileSystemMemoryImpl implements FileSystem {
         LOG.trace("Deleting file '" + filename + "'");
         String standardised = standardisePath(filename);
         if (!files.containsKey(standardised)) {
-            throw new FileSystemOperationException(
-                    "File " + filename + " could not be deleted because it doesn't exist");
+            throw new FileSystemOperationException("File " + filename
+                    + " could not be deleted because it doesn't exist");
         }
         files.remove(standardised);
     }

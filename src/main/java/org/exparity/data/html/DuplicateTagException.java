@@ -7,13 +7,12 @@ package org.exparity.data.html;
 /**
  * @author Stewart Bissett
  */
-public class DuplicateTagException extends RuntimeException
-{
-	private static final long serialVersionUID = 1L;
+public class DuplicateTagException extends RuntimeException {
 
-	public DuplicateTagException(final String errorMessage)
-	{
-		super(errorMessage);
-	}
+    private static final long serialVersionUID = 1L;
+
+    public DuplicateTagException(final String errorMessage) {
+        super(errorMessage);
+    }
 
 }

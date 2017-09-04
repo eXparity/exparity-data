@@ -12,6 +12,7 @@ import org.exparity.data.xml.XmlMatcher;
  * @author Stewart Bissett
  */
 public class XPathMatcher implements XmlMatcher {
+
     private final String xpath;
 
     public XPathMatcher(final String xpath) {

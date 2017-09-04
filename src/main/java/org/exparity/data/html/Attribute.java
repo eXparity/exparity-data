@@ -11,13 +11,12 @@ import org.exparity.data.types.KeyValue;
  * 
  * @author Stewart Bissett
  */
-public class Attribute extends KeyValue<String, String>
-{
-	/**
-	 * Construct an {@link Attribute} instance with the given name and value
-	 */
-	public Attribute(final String name, final String value)
-	{
-		super(name, value);
-	}
+public class Attribute extends KeyValue<String, String> {
+
+    /**
+     * Construct an {@link Attribute} instance with the given name and value
+     */
+    public Attribute(final String name, final String value) {
+        super(name, value);
+    }
 }

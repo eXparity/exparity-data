@@ -231,11 +231,12 @@ public final class HTML extends Text {
         List<Tag> found = findTags(selectors);
         if (CollectionUtils.isEmpty(found)) {
             return null;
-        } else if (found.size() == 1) {
-            return found.get(0);
-        } else {
-            throw new DuplicateTagException("Found multiple tags when one or zero was expected");
-        }
+        } else
+            if (found.size() == 1) {
+                return found.get(0);
+            } else {
+                throw new DuplicateTagException("Found multiple tags when one or zero was expected");
+            }
     }
 
     /**

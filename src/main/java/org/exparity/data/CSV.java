@@ -179,13 +179,14 @@ public class CSV {
             String[] row = reader.readNext();
             if (row == null) {
                 break;
-            } else if (row.length > 0) {
-                if (hasHeader && !table.hasHeader()) {
-                    table = table.setHeader(row);
-                } else {
-                    table = table.addRow(row);
+            } else
+                if (row.length > 0) {
+                    if (hasHeader && !table.hasHeader()) {
+                        table = table.setHeader(row);
+                    } else {
+                        table = table.addRow(row);
+                    }
                 }
-            }
         }
         return new CSV(table);
     }

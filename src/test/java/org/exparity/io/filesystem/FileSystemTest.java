@@ -242,8 +242,8 @@ public class FileSystemTest {
 
     @Test
     public void canListFiles() {
-        final String filenameWithPath = getSubdirectoryFilename(), path = getReferenceDirectory(),
-                subdir = getSubdirectory(), nested = getNestedSubdirectory();
+        final String filenameWithPath = getSubdirectoryFilename(), path = getReferenceDirectory(), subdir =
+                getSubdirectory(), nested = getNestedSubdirectory();
         final String filenameWithoutPath = StringUtils.substringAfterLast(filenameWithPath, "/");
 
         fs.createDirectory(path);

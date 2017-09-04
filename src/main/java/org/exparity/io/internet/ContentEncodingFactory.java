@@ -9,10 +9,9 @@ package org.exparity.io.internet;
  * @deprecated Use static factory methods on {@link ContentEncoding}
  */
 @Deprecated
-public class ContentEncodingFactory
-{
-	public ContentEncoding create(final String charsetName)
-	{
-		return ContentEncoding.forName(charsetName);
-	}
+public class ContentEncodingFactory {
+
+    public ContentEncoding create(final String charsetName) {
+        return ContentEncoding.forName(charsetName);
+    }
 }

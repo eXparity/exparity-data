@@ -12,11 +12,11 @@ import java.io.Reader;
  * 
  * @author Stewart Bissett
  */
-public interface TextDataSource
-{
-	public String getText();
+public interface TextDataSource {
 
-	public Reader getReader();
+    public String getText();
 
-	public InputStream getStream();
+    public Reader getReader();
+
+    public InputStream getStream();
 }

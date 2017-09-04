@@ -15,8 +15,8 @@ public class StylesheetTransformerTest {
 
     @Test
     public void canTransform() throws Exception {
-        final StylesheetTransformer stylesheet =
-                new StylesheetTransformer(JcpFile.open("sample.xsl", StylesheetTransformerTest.class));
+        final StylesheetTransformer stylesheet = new StylesheetTransformer(JcpFile.open("sample.xsl",
+                StylesheetTransformerTest.class));
         final XML xml = XML.openResource("sample.xml", StylesheetTransformerTest.class);
 
         List<Element> elements = xml.findElementsByTagName("sampleElement");

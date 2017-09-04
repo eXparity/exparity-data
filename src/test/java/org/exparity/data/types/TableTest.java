@@ -82,8 +82,8 @@ public class TableTest {
 
     @Test
     public void canSupportSortData() {
-        final Scalar[][] data =
-                { { new Scalar(4), new Scalar(5), new Scalar(6) }, { new Scalar(1), new Scalar(2), new Scalar(3) } };
+        final Scalar[][] data = { { new Scalar(4), new Scalar(5), new Scalar(6) },
+                { new Scalar(1), new Scalar(2), new Scalar(3) } };
         final String[] header = { "A", "B", "C" };
         final Table table = Table.withHeader(header).addRows(data);
 

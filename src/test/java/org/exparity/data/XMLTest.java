@@ -36,7 +36,8 @@ public class XMLTest {
     public void canFindByXPathWithNamespaces() throws Exception {
         final XmlParser parser = newParserFactory().setNamespaceAware(true).build();
         final XML xml = XML.read(JcpFile.open("/org/exparity/data/xml/sample.xml", XML.class), parser);
-        final String result = xml.findTextByXpath("//test:sampleChild", Pair.create("test", "http://www.modularit.co.uk/schema/TEST-1.0"));
+        final String result = xml.findTextByXpath("//test:sampleChild",
+                Pair.create("test", "http://www.modularit.co.uk/schema/TEST-1.0"));
         assertEquals("Some data", result);
     }
 

@@ -13,6 +13,7 @@ import org.exparity.data.Text;
  * @author Stewart Bissett
  */
 public class RegexSelector implements TextSelector<List<String>> {
+
     private final Pattern regex;
 
     public RegexSelector(final Pattern regex) {

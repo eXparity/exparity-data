@@ -39,8 +39,11 @@ public class FilenameUtilsTest {
 
     @Test
     public void testSplitUnixPath() {
-        final String filename = "test.txt", rootDir = "var", subdir = "tmp",
-                fullpath = "/" + rootDir + "/" + subdir + "/" + filename;
+        final String filename = "test.txt", rootDir = "var", subdir = "tmp", fullpath = "/" + rootDir
+                + "/"
+                + subdir
+                + "/"
+                + filename;
         String[] split = FilenameUtils.splitPath(fullpath);
         assertEquals(3, split.length);
         assertEquals(rootDir, split[0]);
@@ -50,8 +53,10 @@ public class FilenameUtilsTest {
 
     @Test
     public void testSplitWindowsPath() {
-        final String filename = "test.txt", rootDir = "C:", subdir = "temp",
-                fullpath = rootDir + "\\" + subdir + "\\" + filename;
+        final String filename = "test.txt", rootDir = "C:", subdir = "temp", fullpath = rootDir + "\\"
+                + subdir
+                + "\\"
+                + filename;
         String[] split = FilenameUtils.splitPath(fullpath);
         assertEquals(3, split.length);
         assertEquals(rootDir, split[0]);

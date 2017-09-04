@@ -47,9 +47,10 @@ public class UrlUtils {
             String[] keyValue = StringUtils.split(pair, "=");
             if (keyValue.length == 1) {
                 args.add(KeyValue.create(keyValue[0], StringUtils.EMPTY));
-            } else if (keyValue.length == 2) {
-                args.add(KeyValue.create(keyValue[0], keyValue[1]));
-            }
+            } else
+                if (keyValue.length == 2) {
+                    args.add(KeyValue.create(keyValue[0], keyValue[1]));
+                }
         }
 
         return args;

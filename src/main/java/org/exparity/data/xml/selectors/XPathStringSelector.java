@@ -16,6 +16,7 @@ import org.w3c.dom.Node;
  * @author Stewart Bissett
  */
 public class XPathStringSelector implements XmlSelector<List<String>> {
+
     private final String xpath;
 
     public XPathStringSelector(final String xpath) {

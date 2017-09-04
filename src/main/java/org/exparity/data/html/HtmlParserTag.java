@@ -126,13 +126,15 @@ public class HtmlParserTag extends Tag {
     public Array toArray() throws BadConversionException {
         if (tag instanceof SelectTag) {
             return createArray((SelectTag) tag);
-        } else if (tag instanceof BulletList) {
-            return createArray((BulletList) tag);
-        } else if (tag instanceof DefinitionList) {
-            return createArray((DefinitionList) tag);
-        } else {
-            throw new BadConversionException("Unable to convert " + tag + " to an array");
-        }
+        } else
+            if (tag instanceof BulletList) {
+                return createArray((BulletList) tag);
+            } else
+                if (tag instanceof DefinitionList) {
+                    return createArray((DefinitionList) tag);
+                } else {
+                    throw new BadConversionException("Unable to convert " + tag + " to an array");
+                }
     }
 
     private Array createArray(final DefinitionList list) {
@@ -276,6 +278,7 @@ public class HtmlParserTag extends Tag {
         final StringBuffer buffer = new StringBuffer();
         try {
             node.getChildren().visitAllNodesWith(new NodeVisitor(true) {
+
                 @Override
                 public void visitTag(final org.htmlparser.Tag tag) {
                     if (withFormatting && tag.breaksFlow()) {

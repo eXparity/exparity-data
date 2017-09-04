@@ -13,6 +13,7 @@ import org.apache.commons.lang.StringUtils;
  * @author Stewart Bissett
  */
 class HttpGet extends HttpCommand {
+
     HttpGet(final String file) {
         super(file);
     }

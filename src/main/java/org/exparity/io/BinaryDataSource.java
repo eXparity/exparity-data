@@ -9,9 +9,9 @@ import java.io.InputStream;
 /**
  * @author Stewart Bissett
  */
-public interface BinaryDataSource
-{
-	public byte[] getBytes();
+public interface BinaryDataSource {
 
-	public InputStream getStream();
+    public byte[] getBytes();
+
+    public InputStream getStream();
 }

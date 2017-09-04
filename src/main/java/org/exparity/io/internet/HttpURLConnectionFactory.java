@@ -11,11 +11,10 @@ import java.net.URL;
 /**
  * @author Stewart Bissett
  */
-public class HttpURLConnectionFactory
-{
-	public HttpURLConnection newConnection(final URL url) throws IOException
-	{
-		return (HttpURLConnection) url.openConnection();
-	}
+public class HttpURLConnectionFactory {
+
+    public HttpURLConnection newConnection(final URL url) throws IOException {
+        return (HttpURLConnection) url.openConnection();
+    }
 
 }

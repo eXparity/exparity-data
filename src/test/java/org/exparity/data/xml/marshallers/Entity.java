@@ -13,43 +13,37 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "Entity")
 @XmlType(name = "Entity")
 @XmlAccessorType(XmlAccessType.FIELD)
-class Entity
-{
-	@XmlElement(required = true)
-	private String elementA;
-	@XmlElement(required = true)
-	private Boolean elementB;
-	@XmlElement(required = true)
-	private Double elementC;
+class Entity {
 
-	public String getElementA()
-	{
-		return elementA;
-	}
+    @XmlElement(required = true)
+    private String elementA;
+    @XmlElement(required = true)
+    private Boolean elementB;
+    @XmlElement(required = true)
+    private Double elementC;
 
-	public void setElementA(final String elementA)
-	{
-		this.elementA = elementA;
-	}
+    public String getElementA() {
+        return elementA;
+    }
 
-	public Boolean getElementB()
-	{
-		return elementB;
-	}
+    public void setElementA(final String elementA) {
+        this.elementA = elementA;
+    }
 
-	public void setElementB(final Boolean elementB)
-	{
-		this.elementB = elementB;
-	}
+    public Boolean getElementB() {
+        return elementB;
+    }
 
-	public Double getElementC()
-	{
-		return elementC;
-	}
+    public void setElementB(final Boolean elementB) {
+        this.elementB = elementB;
+    }
 
-	public void setElementC(final Double elementC)
-	{
-		this.elementC = elementC;
-	}
+    public Double getElementC() {
+        return elementC;
+    }
+
+    public void setElementC(final Double elementC) {
+        this.elementC = elementC;
+    }
 
 }

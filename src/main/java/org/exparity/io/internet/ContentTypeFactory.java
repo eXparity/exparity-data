@@ -15,38 +15,38 @@ import org.slf4j.LoggerFactory;
  */
 public class ContentTypeFactory {
 
-	private static final Logger LOG = LoggerFactory.getLogger(ContentTypeFactory.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ContentTypeFactory.class);
 
-	private Map<String, ContentType> map = new HashMap<String, ContentType>();
-	{
-		map.put("text", new TextContentType());
-		map.put("application/xhtml+xml", new TextContentType());
-		map.put("application/xml", new TextContentType());
-		map.put("image", new BinaryContentType());
-	}
+    private Map<String, ContentType> map = new HashMap<String, ContentType>();
+    {
+        map.put("text", new TextContentType());
+        map.put("application/xhtml+xml", new TextContentType());
+        map.put("application/xml", new TextContentType());
+        map.put("image", new BinaryContentType());
+    }
 
-	public ContentType create(final String contentType) {
-		if (StringUtils.isEmpty(contentType)) {
-			LOG.debug("No content type supplied. Assuming text");
-			return new TextContentType();
-		}
+    public ContentType create(final String contentType) {
+        if (StringUtils.isEmpty(contentType)) {
+            LOG.debug("No content type supplied. Assuming text");
+            return new TextContentType();
+        }
 
-		ContentType type = map.get(contentType);
-		if (type != null) {
-			return type;
-		}
+        ContentType type = map.get(contentType);
+        if (type != null) {
+            return type;
+        }
 
-		String group = extractGroupNameContentType(contentType);
-		type = map.get(group);
-		if (type != null) {
-			return type;
-		}
+        String group = extractGroupNameContentType(contentType);
+        type = map.get(group);
+        if (type != null) {
+            return type;
+        }
 
-		LOG.debug("Unmapped content type " + contentType + ". Assuming text");
-		return new TextContentType();
-	}
+        LOG.debug("Unmapped content type " + contentType + ". Assuming text");
+        return new TextContentType();
+    }
 
-	private String extractGroupNameContentType(final String contentType) {
-		return StringUtils.split(contentType, "/")[0];
-	}
+    private String extractGroupNameContentType(final String contentType) {
+        return StringUtils.split(contentType, "/")[0];
+    }
 }

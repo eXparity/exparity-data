@@ -18,6 +18,7 @@ import org.xml.sax.SAXException;
  * @author Stewart Bissett
  */
 public class ClasspathEntityResolver implements EntityResolver {
+
     private static final Logger LOG = LoggerFactory.getLogger(ClasspathEntityResolver.class);
 
     private final Class<?> klass;

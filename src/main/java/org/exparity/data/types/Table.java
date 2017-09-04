@@ -85,7 +85,8 @@ public class Table {
      * Restore a {@link Table} from an {@link InputStream} using the specified {@link TableReader}
      */
     public static Table from(final InputStream is, final boolean hasHeader, final TableReader reader)
-            throws BadFormatException, IOException {
+            throws BadFormatException,
+            IOException {
         return reader.read(is, hasHeader);
     }
 
@@ -441,7 +442,6 @@ public class Table {
         return as(new TableToMapTransform(keyIndex, valueIndex));
     }
 
-
     @Override
     public String toString() {
         return "Table [" + getNumOfRows() + "x" + getNumOfColumns() + "]";
@@ -451,6 +451,7 @@ public class Table {
      * @author Stewart Bissett
      */
     private final class CompareRowsAtColumnId implements Comparator<Row> {
+
         private final int columnIdToSortBy;
 
         private CompareRowsAtColumnId(final int columnIdToSortBy) {

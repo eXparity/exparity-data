@@ -15,6 +15,7 @@ import org.exparity.data.HTML;
  * @author Stewart Bissett
  */
 public abstract class HtmlSelector {
+
     /**
      * Selects tables from a {@link HTML} document
      */
@@ -84,6 +85,7 @@ public abstract class HtmlSelector {
     public abstract boolean matches(final Tag tag);
 
     private static class AttributeSelector extends HtmlSelector {
+
         private final String[] names;
         private final String value;
 
@@ -117,6 +119,7 @@ public abstract class HtmlSelector {
     }
 
     private static class TagSelector extends HtmlSelector {
+
         private final String[] names;
 
         public TagSelector(final String... names) {
@@ -140,6 +143,7 @@ public abstract class HtmlSelector {
     }
 
     private static class TagRegexSelector extends HtmlSelector {
+
         private final Pattern pattern;
 
         public TagRegexSelector(final Pattern pattern) {
@@ -158,6 +162,7 @@ public abstract class HtmlSelector {
     }
 
     private static class AttributeRegexSelector extends HtmlSelector {
+
         private final Pattern pattern;
         private final String name;
 

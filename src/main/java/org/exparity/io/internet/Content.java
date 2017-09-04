@@ -7,9 +7,9 @@ package org.exparity.io.internet;
 /**
  * @author Stewart Bissett
  */
-public interface Content
-{
-	public String getText() throws ContentConversionException;
+public interface Content {
 
-	public byte[] getBytes();
+    public String getText() throws ContentConversionException;
+
+    public byte[] getBytes();
 }

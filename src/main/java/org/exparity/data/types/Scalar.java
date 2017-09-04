@@ -30,21 +30,23 @@ public class Scalar implements Comparable<Scalar> {
             this.intValue = NumberUtils.isNumber(value) ? doubleValue.intValue() : null;
             this.longValue = NumberUtils.isNumber(value) ? doubleValue.longValue() : null;
             this.booleanValue = null;
-        } else if (object instanceof Number) {
-            this.value = String.valueOf(object);
-            this.intValue = ((Number) object).intValue();
-            this.longValue = ((Number) object).longValue();
-            this.doubleValue = ((Number) object).doubleValue();
-            this.booleanValue = null;
-        } else if (object instanceof Boolean) {
-            this.value = ((Boolean) object).toString();
-            this.intValue = null;
-            this.longValue = null;
-            this.doubleValue = null;
-            this.booleanValue = (Boolean) object;
-        } else {
-            throw new IllegalArgumentException("Scalar only supports String, Number, or Boolean values");
-        }
+        } else
+            if (object instanceof Number) {
+                this.value = String.valueOf(object);
+                this.intValue = ((Number) object).intValue();
+                this.longValue = ((Number) object).longValue();
+                this.doubleValue = ((Number) object).doubleValue();
+                this.booleanValue = null;
+            } else
+                if (object instanceof Boolean) {
+                    this.value = ((Boolean) object).toString();
+                    this.intValue = null;
+                    this.longValue = null;
+                    this.doubleValue = null;
+                    this.booleanValue = (Boolean) object;
+                } else {
+                    throw new IllegalArgumentException("Scalar only supports String, Number, or Boolean values");
+                }
     }
 
     public String getValueAsString() {
@@ -103,15 +105,18 @@ public class Scalar implements Comparable<Scalar> {
         try {
             if (intValue != null) {
                 return intValue.compareTo(o.getValueAsInteger());
-            } else if (longValue != null) {
-                return longValue.compareTo(o.getValueAsLong());
-            } else if (doubleValue != null) {
-                return doubleValue.compareTo(o.getValueAsDouble());
-            } else if (booleanValue != null) {
-                return booleanValue.compareTo(o.getValueAsBoolean());
-            } else {
-                return value.compareTo(o.value);
-            }
+            } else
+                if (longValue != null) {
+                    return longValue.compareTo(o.getValueAsLong());
+                } else
+                    if (doubleValue != null) {
+                        return doubleValue.compareTo(o.getValueAsDouble());
+                    } else
+                        if (booleanValue != null) {
+                            return booleanValue.compareTo(o.getValueAsBoolean());
+                        } else {
+                            return value.compareTo(o.value);
+                        }
         } catch (NumberFormatException e) {
             return value.compareTo(o.value);
         }

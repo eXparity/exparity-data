@@ -13,32 +13,32 @@ import org.exparity.data.types.Table;
 /**
  * @author Stewart Bissett
  */
-public abstract class Tag
-{
-	public abstract List<Tag> getChildren();
+public abstract class Tag {
 
-	public abstract List<Attribute> getAttributes();
+    public abstract List<Tag> getChildren();
 
-	/**
-	 * Returns the text contained within the tag and includes the content of any nested tags
-	 */
-	public abstract String getText();
+    public abstract List<Attribute> getAttributes();
 
-	/**
-	 * Returns the text contained within the tag and includes the content of any nested tags. It also retains any
-	 * formatting such as line breaks or paragraphs defined in the tag
-	 */
-	public abstract String getFormattedText();
+    /**
+     * Returns the text contained within the tag and includes the content of any nested tags
+     */
+    public abstract String getText();
 
-	public abstract String getName();
+    /**
+     * Returns the text contained within the tag and includes the content of any nested tags. It also retains any
+     * formatting such as line breaks or paragraphs defined in the tag
+     */
+    public abstract String getFormattedText();
 
-	public abstract Tag getParent();
+    public abstract String getName();
 
-	public abstract String getAttribute(final String attributeName);
+    public abstract Tag getParent();
 
-	public abstract boolean isType(String... types);
+    public abstract String getAttribute(final String attributeName);
 
-	public abstract Array toArray() throws BadConversionException;
+    public abstract boolean isType(String... types);
 
-	public abstract Table toTable() throws BadConversionException;
+    public abstract Array toArray() throws BadConversionException;
+
+    public abstract Table toTable() throws BadConversionException;
 }

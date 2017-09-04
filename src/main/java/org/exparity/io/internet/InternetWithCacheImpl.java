@@ -75,7 +75,8 @@ public class InternetWithCacheImpl implements Internet {
     public InternetFile open(final URL url,
             final String userAgent,
             final int maxRetries,
-            final HttpHeader... properties) throws FileNotFoundException, MaxRetryException {
+            final HttpHeader... properties) throws FileNotFoundException,
+            MaxRetryException {
         InternetFile iFile = readFromCache(url);
         if (iFile != null) {
             return iFile;

@@ -16,56 +16,49 @@ import org.apache.commons.lang.Validate;
 /**
  * @author Stewart Bissett
  */
-public class HttpHeaders
-{
-	private List<HttpHeader> headers = new ArrayList<HttpHeader>();
+public class HttpHeaders {
 
-	public HttpHeaders(final Collection<HttpHeader> headers)
-	{
-		Validate.notNull(headers, "Headers collection cannot be null");
-		this.headers.addAll(headers);
-	}
+    private List<HttpHeader> headers = new ArrayList<HttpHeader>();
 
-	HttpHeaders()
-	{}
+    public HttpHeaders(final Collection<HttpHeader> headers) {
+        Validate.notNull(headers, "Headers collection cannot be null");
+        this.headers.addAll(headers);
+    }
 
-	public String getHeaderValue(final String entryName)
-	{
-		String[] found = getHeaderValues(entryName);
-		return found.length > 0 ? found[0] : null;
-	}
+    HttpHeaders() {}
 
-	public String[] getHeaderValues(final String entryName)
-	{
-		Set<String> values = new HashSet<String>();
-		for (HttpHeader entry : headers) {
-			if (entryName.equals(entry.getKey())) {
-				values.add(entry.getValue());
-			}
-		}
-		return values.toArray(new String[] {});
-	}
+    public String getHeaderValue(final String entryName) {
+        String[] found = getHeaderValues(entryName);
+        return found.length > 0 ? found[0] : null;
+    }
 
-	public static HttpHeaders getFrom(final HttpURLConnection con)
-	{
-		Collection<HttpHeader> responseHeaders = new ArrayList<HttpHeader>();
-		for (String key : con.getHeaderFields().keySet()) {
-			for (String value : con.getHeaderFields().get(key)) {
-				responseHeaders.add(new HttpHeader(key, value));
-			}
-		}
-		return new HttpHeaders(responseHeaders);
-	}
+    public String[] getHeaderValues(final String entryName) {
+        Set<String> values = new HashSet<String>();
+        for (HttpHeader entry : headers) {
+            if (entryName.equals(entry.getKey())) {
+                values.add(entry.getValue());
+            }
+        }
+        return values.toArray(new String[] {});
+    }
 
-	public void setOn(final HttpURLConnection con)
-	{
-		for (HttpHeader header : headers) {
-			con.setRequestProperty(header.getKey(), header.getValue());
-		}
-	}
+    public static HttpHeaders getFrom(final HttpURLConnection con) {
+        Collection<HttpHeader> responseHeaders = new ArrayList<HttpHeader>();
+        for (String key : con.getHeaderFields().keySet()) {
+            for (String value : con.getHeaderFields().get(key)) {
+                responseHeaders.add(new HttpHeader(key, value));
+            }
+        }
+        return new HttpHeaders(responseHeaders);
+    }
 
-	public List<HttpHeader> getHeaders()
-	{
-		return headers;
-	}
+    public void setOn(final HttpURLConnection con) {
+        for (HttpHeader header : headers) {
+            con.setRequestProperty(header.getKey(), header.getValue());
+        }
+    }
+
+    public List<HttpHeader> getHeaders() {
+        return headers;
+    }
 }

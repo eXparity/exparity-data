@@ -10,6 +10,7 @@ import java.net.URL;
  * @author Stewart Bissett
  */
 public class HttpCommandBuilder {
+
     private final HttpURLConnectionFactory factory;
 
     public HttpCommandBuilder(final HttpURLConnectionFactory factory) {

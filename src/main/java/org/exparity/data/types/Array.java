@@ -166,7 +166,7 @@ public class Array implements Iterable<Scalar> {
     }
 
     public String[] asStringArray() {
-        return values().map(Scalar::getValueAsString).collect(toList()).toArray(new String[]{});
+        return values().map(Scalar::getValueAsString).collect(toList()).toArray(new String[] {});
     }
 
     @Override

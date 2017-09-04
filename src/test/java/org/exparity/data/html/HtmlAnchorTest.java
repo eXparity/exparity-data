@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.exparity.data.HTML;
-import org.exparity.data.html.Anchor;
 import org.exparity.io.classpath.JcpFile;
 import org.junit.Test;
 
