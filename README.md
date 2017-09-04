@@ -4,13 +4,13 @@ Data scraping and manipulation tools for Java
 eXparity Data  [![Build Status](https://travis-ci.org/eXparity/exparity-data.svg?branch=master)](https://travis-ci.org/eXparity/exparity-data) [![Coverage Status](https://coveralls.io/repos/eXparity/exparity-data/badge.png?branch=master)](https://coveralls.io/r/eXparity/exparity-data?branch=master)
 =============
 
-A date matching library for [Java Hamcrest][]
+A data scraping library for [Java][]
 
 Licensed under [BSD License][].
 
 What is eXparity Data?
 -----------------
-eXparity Data is a Java Library which provides data scraping, manipulation, and ingestion tools for both structured and unstructured data sourced from the www, local files, or any other source
+eXparity Data is a Java Library which provides data scraping, manipulation, and ingestion tools for both structured and unstructured data sourced from the internet, local files, or any other source
 
 Downloads
 ---------
@@ -32,7 +32,18 @@ eXparity Data has a single binary, exparity-data.jar, which contains all the uti
 Usage
 -------------
 
-TBD
+The exparity-data library current supports 4 file formats; HTML, XML, CSV, and Text, and it can load them from the internet, a classpath resource, the file system, and InputStream and Reader implementations.
+
+The file format classes are all found in the org.exparity.data package and can be instantiated through static methods. For example:
+
+	HTML html = HTML.openURL("http://www.google.com/");
+	CSV csv = CSV.openFile("C:/Users/Bob/Desktop/MyCSV.csv");
+
+Once a file has been instantiated then the library provides tools to interrogate and process the data. For example
+
+	List<String> headers = CSV.openFile("...").getHeaders();
+	List<Anchor> anchors = HTML.openURL("...").findAnchors();
+
 
 The Javadocs include examples on all methods so you can look there for examples for specific methods
 
@@ -47,6 +58,8 @@ The source includes a pom.xml for building with Maven
 
 Release Notes
 -------------
+1.0.0 
+  * Initial release cut of code
 
 Acknowledgements
 ----------------
