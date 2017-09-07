@@ -4,7 +4,7 @@ Data scraping and manipulation tools for Java
 eXparity Data  [![Build Status](https://travis-ci.org/eXparity/exparity-data.svg?branch=master)](https://travis-ci.org/eXparity/exparity-data) [![Coverage Status](https://coveralls.io/repos/eXparity/exparity-data/badge.png?branch=master)](https://coveralls.io/r/eXparity/exparity-data?branch=master)
 =============
 
-A data scraping library for [Java][]
+A data scraping library for Java
 
 Licensed under [BSD License][].
 
@@ -30,7 +30,7 @@ Binaries
 eXparity Data has a single binary, exparity-data.jar, which contains all the utilities. Sources and JavaDoc jars are available.
 
 Usage
--------------
+-----
 
 The exparity-data library current supports 4 file formats; HTML, XML, CSV, and Text, and it can load them from the internet, a classpath resource, the file system, and InputStream and Reader implementations.
 
@@ -43,7 +43,6 @@ Once a file has been instantiated then the library provides tools to interrogate
 
 	List<String> headers = CSV.openFile("...").getHeaders();
 	List<Anchor> anchors = HTML.openURL("...").findAnchors();
-
 
 The Javadocs include examples on all methods so you can look there for examples for specific methods
 

@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 
 package org.exparity.data.types;
@@ -7,6 +7,7 @@ package org.exparity.data.types;
 import static java.util.stream.Collectors.toList;
 
 import java.io.PrintStream;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -114,6 +115,10 @@ public class Array implements Iterable<Scalar> {
 
     public Double getValueAsDouble(final int index) {
         return (index >= 0 && index < values.size()) ? values.get(index).getValueAsDouble() : null;
+    }
+
+    public BigDecimal getValueAsDecimal(final int index) {
+        return (index >= 0 && index < values.size()) ? values.get(index).getValueAsDecimal() : null;
     }
 
     public Long getValueAsLong(final int index) {

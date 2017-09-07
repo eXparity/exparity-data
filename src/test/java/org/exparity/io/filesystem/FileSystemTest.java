@@ -13,10 +13,6 @@ import java.util.List;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
-import org.exparity.io.filesystem.FileSystem;
-import org.exparity.io.filesystem.FileSystemMemoryImpl;
-import org.exparity.io.filesystem.FileSystemOperationException;
-import org.exparity.io.filesystem.FileSystemPhysicalImpl;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,8 +29,9 @@ public class FileSystemTest {
 
     @Parameters
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { new FileSystemMemoryImpl(), new Memory() },
-                { new FileSystemPhysicalImpl(), new Physical() } });
+        Object[] memory = { new FileSystemMemoryImpl(), new Memory() };
+        Object[] filesystem = { new FileSystemPhysicalImpl(), new Physical() };
+        return Arrays.asList(memory, filesystem);
     }
 
     @Parameter
@@ -102,15 +99,10 @@ public class FileSystemTest {
         assertEquals(false, fs.directoryExists(directory));
     }
 
-    @Test
+    @Test(expected = FileSystemOperationException.class)
     public void canDeleteNonExistentDirectory() {
         final String directory = getReferenceDirectory();
-
-        try {
-            fs.deleteDirectory(directory);
-            fail("Excpected FileSystemOperationException");
-        } catch (FileSystemOperationException e) {
-        }
+        fs.deleteDirectory(directory);
     }
 
     @Test
@@ -124,15 +116,10 @@ public class FileSystemTest {
         assertEquals(false, fs.fileExists(filename));
     }
 
-    @Test
+    @Test(expected = FileSystemOperationException.class)
     public void canDeleteNonExistentFile() {
         final String filename = getReferenceFilename();
-
-        try {
-            fs.deleteFile(filename);
-            fail("Excpected FileSystemOperationException");
-        } catch (FileSystemOperationException e) {
-        }
+        fs.deleteFile(filename);
     }
 
     @Test
@@ -166,52 +153,35 @@ public class FileSystemTest {
         assertEquals(true, ArrayUtils.isEquals(allBytes, read));
     }
 
-    @Test
+    @Test(expected = FileSystemOperationException.class)
     public void canReadOnNonExistentFile() {
         final String filename = getReferenceFilename();
-
-        try {
-            assertEquals(false, fs.fileExists(filename));
-            fs.readFile(filename);
-            fail("Excpected FileSystemOperationException");
-        } catch (FileSystemOperationException e) {
-        }
+        assertEquals(false, fs.fileExists(filename));
+        fs.readFile(filename);
     }
 
-    @Test
+    @Test(expected = FileSystemOperationException.class)
     public void canWriteOnNonExistentFile() {
         final String filename = getReferenceFilename();
-
-        try {
-            assertEquals(false, fs.fileExists(filename));
-            fs.writeFile(filename);
-            fail("Excpected FileSystemOperationException");
-        } catch (FileSystemOperationException e) {
-        }
+        assertEquals(false, fs.fileExists(filename));
+        fs.writeFile(filename);
+        fail("Excpected FileSystemOperationException");
     }
 
-    @Test
+    @Test(expected = FileSystemOperationException.class)
     public void canAppendOnNonExistentFile() {
         final String filename = getReferenceFilename();
-
-        try {
-            assertEquals(false, fs.fileExists(filename));
-            fs.appendFile(filename);
-            fail("Excpected FileSystemOperationException");
-        } catch (FileSystemOperationException e) {
-        }
+        assertEquals(false, fs.fileExists(filename));
+        fs.appendFile(filename);
+        fail("Excpected FileSystemOperationException");
     }
 
-    @Test
+    @Test(expected = FileSystemOperationException.class)
     public void canFileSizeOnNonExistentFile() {
         final String filename = getReferenceFilename();
-
-        try {
-            assertEquals(false, fs.fileExists(filename));
-            fs.fileSize(filename);
-            fail("Excpected FileSystemOperationException");
-        } catch (FileSystemOperationException e) {
-        }
+        assertEquals(false, fs.fileExists(filename));
+        fs.fileSize(filename);
+        fail("Excpected FileSystemOperationException");
     }
 
     @Test

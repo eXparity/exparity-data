@@ -1,9 +1,10 @@
 /*
- * 
+ *
  */
 
 package org.exparity.data.types;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -66,6 +67,14 @@ public class Scalar implements Comparable<Scalar> {
      */
     public double getValueAsDouble() {
         return doubleValue != null ? doubleValue : Double.valueOf(value);
+    }
+
+    /**
+     * Return the value of the scalar as a double or throw a {@link NumberFormatException} if the value is not
+     * convertible to a double
+     */
+    public BigDecimal getValueAsDecimal() {
+        return doubleValue != null ? BigDecimal.valueOf(doubleValue) : BigDecimal.valueOf(Double.valueOf(value));
     }
 
     /**
