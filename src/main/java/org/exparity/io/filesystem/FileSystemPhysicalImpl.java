@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 
 package org.exparity.io.filesystem;
@@ -218,7 +218,7 @@ public class FileSystemPhysicalImpl implements FileSystem {
     }
 
     private List<String> extractFilenames(final File[] files) {
-        List<String> filenames = new ArrayList<String>();
+        List<String> filenames = new ArrayList<>();
         for (File file : files) {
             filenames.add(file.getName());
         }
